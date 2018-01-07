@@ -1,0 +1,19 @@
+#!/bin/bash
+
+TEST=$(curl ipv4.icanhazip.com)
+IP=$(cat /etc/currentip.cfg)
+
+main ()
+        {
+
+        if [[ $TEST = $IP ]]
+        then
+                echo "IP is current: $IP"
+                exit 0
+        else
+                echo "IP is new: $TEST"
+                exit 2
+        fi
+
+        }
+main;
